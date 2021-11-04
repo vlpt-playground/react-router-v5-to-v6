@@ -1,26 +1,24 @@
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Post from "./pages/Post";
 import User from "./pages/User/User";
 import Optional from "./pages/Optional";
+import UserMain from "./pages/User/UserMain";
+import About from "./pages/User/About";
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" exact>
-        <Home />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/posts/:id" element={<Post />} />
+      <Route path="/users/:username/*" element={<User />}>
+        <Route path="" element={<UserMain />} />
+        <Route path="about" element={<About />} />
       </Route>
-      <Route path="/posts/:id">
-        <Post />
-      </Route>
-      <Route path="/users/:username">
-        <User />
-      </Route>
-      <Route path="/optional/:value?">
-        <Optional />
-      </Route>
-    </Switch>
+      <Route path="/optional/:value" element={<Optional />} />
+      <Route path="/optional" element={<Optional />} />
+    </Routes>
   );
 }
 

@@ -1,26 +1,17 @@
-import { Route, useParams, useRouteMatch } from "react-router";
-import { Link } from "react-router-dom";
-import About from "./About";
-import UserMain from "./UserMain";
+import { Link, Outlet, useParams } from "react-router-dom";
 
 function User() {
-  const match = useRouteMatch();
   const { username } = useParams();
 
   return (
     <div>
       <div>
-        <Link to={`${match.url}`} style={{ marginRight: 16 }}>
+        <Link to="" style={{ marginRight: 16 }}>
           @{username}
         </Link>
-        <Link to={`${match.url}/about`}>About</Link>
+        <Link to="about">About</Link>
       </div>
-      <Route path={`${match.path}`} exact>
-        <UserMain />
-      </Route>
-      <Route path={`${match.path}/about`}>
-        <About />
-      </Route>
+      <Outlet />
     </div>
   );
 }

@@ -1,33 +1,33 @@
-import { useHistory, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 function Post() {
   const { id } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div>
       <button
         onClick={() => {
-          history.push("/");
+          navigate("/");
         }}
       >
         Home
       </button>
       <button
         onClick={() => {
-          history.goBack();
+          navigate(-1);
         }}
       >
         Go Back
       </button>
       <button
         onClick={() => {
-          history.go(-2);
+          navigate(-2);
         }}
       >
         Go Back Twice
       </button>
       <div>Post {id}</div>
-      <button onClick={() => history.push(`/posts/${parseInt(id) + 1}`)}>
+      <button onClick={() => navigate(`/posts/${parseInt(id) + 1}`)}>
         Next Post
       </button>
     </div>
