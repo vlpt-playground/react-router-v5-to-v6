@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
 
-function Opitonal() {
+function Optional() {
   const { value } = useParams();
   return <div>Value: {value ?? "None"}</div>;
 }
 
-export default Opitonal;
+export default Optional;

@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Post from "./pages/Post";
 import User from "./pages/User/User";
-import Opitonal from "./pages/Optional";
+import Optional from "./pages/Optional";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <User />
       </Route>
       <Route path="/optional/:value?">
-        <Opitonal />
+        <Optional />
       </Route>
     </Switch>
   );
